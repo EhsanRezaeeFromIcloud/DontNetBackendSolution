@@ -16,6 +16,7 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
 
         }
 
+
         public UserRole(long userId, long roleId)
         {
             UserId = userId;
