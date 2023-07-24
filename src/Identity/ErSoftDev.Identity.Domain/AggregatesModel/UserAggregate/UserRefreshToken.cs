@@ -50,5 +50,10 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
             IsDeleted = true;
             DeletedAt = DateTime.Now;
         }
+
+        public void UseRefreshToken()
+        {
+            IsUse = true;
+        }
     }
 }

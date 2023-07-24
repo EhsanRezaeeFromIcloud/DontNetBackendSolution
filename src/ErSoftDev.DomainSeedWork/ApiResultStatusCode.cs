@@ -22,6 +22,10 @@
         PasswordsAreNotEqual = 11,
         AllFieldsOfAddressMustBeFillOrNonOfFields = 12,
         UsernameOrPasswordIsNotCorrect = 13,
-        OneOfTheBrowserOrDeviceNameMustBeFill = 14
+        OneOfTheBrowserOrDeviceNameMustBeFill = 14,
+        RefreshTokenIsDeActive = 15,
+        RefreshTokenIsUsed = 16,
+        RefreshTokenIsRevoked = 17,
+        RefreshTokenIsExpire = 18
     }
 }

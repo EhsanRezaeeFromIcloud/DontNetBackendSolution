@@ -159,4 +159,16 @@
   <data name="OneOfTheBrowserOrDeviceNameMustBeFill" xml:space="preserve">
     <value>حداقل یکی از مقادیر مرورگر یا نام دستگاه باید پر شود</value>
   </data>
+  <data name="RefreshTokenIsDeActive" xml:space="preserve">
+    <value>رفرش توکن غیر فعال می باشد</value>
+  </data>
+  <data name="RefreshTokenIsUsed" xml:space="preserve">
+    <value>رفرش توکن قبلا استفاده شده است</value>
+  </data>
+  <data name="RefreshTokenIsRevoked" xml:space="preserve">
+    <value>رفرش توکن باطل شده است</value>
+  </data>
+  <data name="RefreshTokenIsExpire" xml:space="preserve">
+    <value>زمان استفاده از رفرش توکن منقض شده است</value>
+  </data>
 </root>
