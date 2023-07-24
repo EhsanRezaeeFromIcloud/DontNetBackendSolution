@@ -31,5 +31,12 @@ namespace ErSoftDev.Identity.EndPoint.Controllers.v1
         {
             return await _mediator.Send(request, cancellationToken);
         }
+
+        [HttpPost("[action]")]
+        public async Task<ApiResult<RefreshTokenResponse>> RefreshToken(GetRefreshTokenCommand request,
+            CancellationToken cancellationToken)
+        {
+            return await _mediator.Send(request, cancellationToken);
+        }
     }
 }

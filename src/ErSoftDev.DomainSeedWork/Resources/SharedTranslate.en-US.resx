@@ -159,4 +159,16 @@
   <data name="OneOfTheBrowserOrDeviceNameMustBeFill" xml:space="preserve">
     <value>One of the browser or device name must be fill</value>
   </data>
+  <data name="RefreshTokenIsDeActive" xml:space="preserve">
+    <value>Refresh token is deactive</value>
+  </data>
+  <data name="RefreshTokenIsUsed" xml:space="preserve">
+    <value>Refrsht token is used earlier</value>
+  </data>
+  <data name="RefreshTokenIsRevoked" xml:space="preserve">
+    <value>Refresh token is revoked earlier</value>
+  </data>
+  <data name="RefreshTokenIsExpire" xml:space="preserve">
+    <value>Refresh token is expired</value>
+  </data>
 </root>

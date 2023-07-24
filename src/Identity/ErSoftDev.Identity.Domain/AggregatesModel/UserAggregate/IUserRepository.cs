@@ -7,5 +7,7 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
         Task<User?> GetUserByUsernameAndPassword(string username, string password, CancellationToken cancellationToken);
 
         Task<User?> GetUser(long id);
+
+        Task<User?> GetUserByRefreshToken(string refreshToken);
     }
 }

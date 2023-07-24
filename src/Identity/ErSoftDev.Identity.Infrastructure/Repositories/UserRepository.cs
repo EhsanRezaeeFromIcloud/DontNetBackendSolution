@@ -2,6 +2,7 @@
 using Common.Contracts;
 using ErSoftDev.DomainSeedWork;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;
+using IdGen;
 using Microsoft.EntityFrameworkCore;
 
 namespace ErSoftDev.Identity.Infrastructure.Repositories
@@ -45,6 +46,19 @@ namespace ErSoftDev.Identity.Infrastructure.Repositories
                 .Include(user => user.UserRefreshTokens)
                 .Include(user => user.UserRoles)
                 .FirstOrDefaultAsync(user => user.Id == id);
+        }
+
+        public async Task<User?> GetUserByRefreshToken(string refreshToken)
+        {
+            var refreshTokenResponse = await _identityDbContext.Users
+                .SelectMany(user => user.UserRefreshTokens.Where(token => token.Token == refreshToken)).ToListAsync();
+            if (refreshTokenResponse.Count <= 0)
+                return null;
+
+            return await _identityDbContext.Users
+                .Include(user => user.UserLogins)
+                .Include(user => user.UserRefreshTokens)
+                .FirstOrDefaultAsync(user => user.Id == refreshTokenResponse.First().UserId);
         }
     }
 }
