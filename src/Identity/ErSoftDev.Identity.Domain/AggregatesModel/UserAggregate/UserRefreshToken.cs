@@ -55,5 +55,10 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
         {
             IsUse = true;
         }
+
+        public void RevokeRefreshToken()
+        {
+            IsRevoke = true;
+        }
     }
 }

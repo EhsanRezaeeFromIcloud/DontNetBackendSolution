@@ -146,10 +146,28 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
         }
 
 
-
-        public string NewRefreshToken()
+        private string NewRefreshToken()
         {
             return string.Concat(Guid.NewGuid().ToString("N"), Guid.NewGuid().ToString("N"));
+        }
+
+        public void RevokeRefreshToken(string refreshToken)
+        {
+            SecurityStampToken = Guid.NewGuid().ToString();
+
+            var userRefreshToken = _userRefreshTokens.FirstOrDefault(token => token.Token == refreshToken);
+            if (userRefreshToken is null)
+                throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.NotFound);
+            if (userRefreshToken.IsActive == false)
+                throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.RefreshTokenIsDeActive);
+            if (userRefreshToken.IsUse)
+                throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.RefreshTokenIsUsed);
+            if (userRefreshToken.IsRevoke)
+                throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.RefreshTokenIsRevoked);
+            if (userRefreshToken.ExpireAt < DateTime.Now)
+                throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.RefreshTokenIsExpire);
+
+            userRefreshToken.RevokeRefreshToken();
         }
     }
 }
