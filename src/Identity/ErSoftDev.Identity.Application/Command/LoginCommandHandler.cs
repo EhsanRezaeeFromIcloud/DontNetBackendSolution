@@ -32,7 +32,7 @@ namespace ErSoftDev.Identity.Application.Command
 
         public async Task<ApiResult<LoginResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetUserByUsernameAndPassword(request.Username,
+            var user = await _userRepository.GetByUsernameAndPassword(request.Username,
                 SecurityHelper.GetMd5(request.Password), cancellationToken);
             if (user is null)
                 throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.UsernameOrPasswordIsNotCorrect);

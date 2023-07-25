@@ -33,7 +33,7 @@ namespace ErSoftDev.Identity.Infrastructure.Repositories
             return await _identityDbContext.Users.Where(predicate).ToListAsync();
         }
 
-        public async Task<User?> GetUserByUsernameAndPassword(string username, string password, CancellationToken cancellationToken)
+        public async Task<User?> GetByUsernameAndPassword(string username, string password, CancellationToken cancellationToken)
         {
             return await _identityDbContext.Users.Include(user => user.UserRefreshTokens).FirstOrDefaultAsync(
                 user => user.Username == username && user.Password == password, cancellationToken);
@@ -48,7 +48,7 @@ namespace ErSoftDev.Identity.Infrastructure.Repositories
                 .FirstOrDefaultAsync(user => user.Id == id);
         }
 
-        public async Task<User?> GetUserByRefreshToken(string refreshToken)
+        public async Task<User?> GetByRefreshToken(string refreshToken)
         {
             var refreshTokenResponse = await _identityDbContext.Users
                 .SelectMany(user => user.UserRefreshTokens.Where(token => token.Token == refreshToken)).ToListAsync();

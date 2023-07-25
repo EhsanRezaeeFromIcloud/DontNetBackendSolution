@@ -19,7 +19,6 @@ namespace ErSoftDev.Identity.EndPoint.Controllers.v1
             _mediator = mediator;
         }
 
-
         [HttpPost("[action]")]
         public async Task<ApiResult> Register(RegisterUserCommand request, CancellationToken cancellationToken)
         {
@@ -41,6 +40,13 @@ namespace ErSoftDev.Identity.EndPoint.Controllers.v1
 
         [HttpPost("[action]")]
         public async Task<ApiResult> RevokeRefreshToken(RevokeRefreshTokenCommand request,
+            CancellationToken cancellationToken)
+        {
+            return await _mediator.Send(request, cancellationToken);
+        }
+
+        [HttpPut("[action]")]
+        public async Task<ApiResult> Update(UpdateUserCommand request,
             CancellationToken cancellationToken)
         {
             return await _mediator.Send(request, cancellationToken);

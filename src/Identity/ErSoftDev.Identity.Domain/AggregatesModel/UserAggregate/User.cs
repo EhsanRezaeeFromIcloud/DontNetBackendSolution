@@ -61,38 +61,32 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
             CreatorUserId = id;
         }
 
-        public void UpdateUser(string firstname, string lastname, string cellPhone, string email, string image, Address address)
+        public void Update(string? firstname, string? lastname, string? cellPhone, string? email, Address? address)
         {
-            var parameterValidation = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(firstname))
-                parameterValidation.Append(nameof(firstname) + " ");
-            if (string.IsNullOrWhiteSpace(lastname))
-                parameterValidation.Append(nameof(lastname) + " ");
-            if (parameterValidation.Length > 0)
-                throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.ParametersAreNotValid,
-                    parameterValidation.ToString());
-
-            var addressProperty = address.GetType().GetProperties();
-            var addressPropertiesAtLeastHasOneValue = false;
-            var addressPropertiesAtLeastHasOneNotValue = false;
-            foreach (var property in addressProperty)
+            if (address is not null)
             {
-                var value = property.GetValue(this, null);
-                if (value != null)
-                    addressPropertiesAtLeastHasOneValue = true;
-                else
-                    addressPropertiesAtLeastHasOneNotValue = true;
-            }
-            if (addressPropertiesAtLeastHasOneValue && addressPropertiesAtLeastHasOneNotValue)
-                throw new AppException(ApiResultStatusCode.Failed,
-                    ApiResultErrorCode.AllFieldsOfAddressMustBeFillOrNonOfFields);
+                var addressProperty = address.GetType().GetProperties();
+                var addressPropertiesAtLeastHasOneValue = false;
+                var addressPropertiesAtLeastHasOneNotValue = false;
+                foreach (var property in addressProperty)
+                {
+                    var value = property.GetValue(this, null);
+                    if (value != null)
+                        addressPropertiesAtLeastHasOneValue = true;
+                    else
+                        addressPropertiesAtLeastHasOneNotValue = true;
+                }
 
-            Firstname = firstname;
-            Lastname = lastname;
-            CellPhone = cellPhone;
-            Email = email;
-            Image = image;
-            Address = address;
+                if (addressPropertiesAtLeastHasOneValue && addressPropertiesAtLeastHasOneNotValue)
+                    throw new AppException(ApiResultStatusCode.Failed,
+                        ApiResultErrorCode.AllFieldsOfAddressMustBeFillOrNonOfFields);
+            }
+
+            Firstname = firstname ?? Firstname;
+            Lastname = lastname ?? Lastname;
+            CellPhone = cellPhone ?? CellPhone;
+            Email = email ?? Email;
+            Address = address ?? Address;
         }
 
         public string UpdateSecurityStampTokenAndGetRefreshToken(string securityStampToken,

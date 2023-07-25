@@ -95,7 +95,7 @@ namespace ErSoftDev.Framework.Middlewares
                 httpContext.Response.ContentType = "Application/json";
 
                 await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(
-                    new ApiResult(_stringLocalizer, ex.ApiResultStatusCode, ex.ApiResultErrorCode/*, ex.Message*/),
+                    new ApiResult(_stringLocalizer, ex.ApiResultStatusCode, ex.ApiResultErrorCode, ex.Message),
                     new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
             }
             catch (Exception ex)
