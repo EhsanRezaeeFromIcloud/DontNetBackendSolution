@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllFieldsOfAddressMustBeFillOrNonOfFields" xml:space="preserve">
+    <value>یا همه ی  فیلد های آدرس باید پر شوند یا هیچکدام از آنها</value>
+  </data>
   <data name="AlreadyExists" xml:space="preserve">
     <value>با مشخصات ارسالی قبلا رکوردی در دیتابیس ذخیره شده است</value>
   </data>
@@ -126,49 +129,55 @@
   <data name="DbError" xml:space="preserve">
     <value>خطا در دیتابیس رخ داده است</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>خطا در انجام عملیات</value>
+  </data>
   <data name="LogicError" xml:space="preserve">
     <value>خطای منطقی رخ داده است</value>
   </data>
   <data name="NotFound" xml:space="preserve">
     <value>رکوردی یافت نشد</value>
   </data>
+  <data name="OneOfTheBrowserOrDeviceNameMustBeFill" xml:space="preserve">
+    <value>حداقل یکی از مقادیر مرورگر یا نام دستگاه باید پر شود</value>
+  </data>
   <data name="ParametersAreNotValid" xml:space="preserve">
     <value>پارامتر های ارسالی معتبر نمی باشد</value>
   </data>
-  <data name="TokenIsExpired" xml:space="preserve">
-    <value>تاریخ انقضای توکن فرا رسیده است ، جهت دریافت توکن جدید میتوانید از سرویس های  گت توکن یا رفرش توکن استفاده نمایید.</value>
-  </data>
-  <data name="Unauthorized" xml:space="preserve">
-    <value>دسترسی وجود ندارد</value>
-  </data>
-  <data name="TokenIsNotSafeWithSecurityStamp" xml:space="preserve">
-    <value>توکن امن فاقد مهر امنیتی می باشد</value>
-  </data>
-  <data name="TokenHasNotClaim" xml:space="preserve">
-    <value>اطلاعات توکن ناقص می باشد</value>
-  </data>
-  <data name="PasswordsAreNotEaual" xml:space="preserve">
+  <data name="PasswordsAreNotEqual" xml:space="preserve">
     <value>رمز های عبور یکسان نمی باشند</value>
-  </data>
-  <data name="AllFieldsOfAddressMustBeFillOrNonOfFields" xml:space="preserve">
-    <value>یا همه ی  فیلد های آدرس باید پر شوند یا هیچکدام از آنها</value>
-  </data>
-  <data name="UsernameOrPasswordIsNotCorrect" xml:space="preserve">
-    <value>نام کاربری یا رمز عبور اشتباه است</value>
-  </data>
-  <data name="OneOfTheBrowserOrDeviceNameMustBeFill" xml:space="preserve">
-    <value>حداقل یکی از مقادیر مرورگر یا نام دستگاه باید پر شود</value>
   </data>
   <data name="RefreshTokenIsDeActive" xml:space="preserve">
     <value>رفرش توکن غیر فعال می باشد</value>
   </data>
-  <data name="RefreshTokenIsUsed" xml:space="preserve">
-    <value>رفرش توکن قبلا استفاده شده است</value>
+  <data name="RefreshTokenIsExpire" xml:space="preserve">
+    <value>زمان استفاده از رفرش توکن منقضی شده است</value>
   </data>
   <data name="RefreshTokenIsRevoked" xml:space="preserve">
     <value>رفرش توکن باطل شده است</value>
   </data>
-  <data name="RefreshTokenIsExpire" xml:space="preserve">
-    <value>زمان استفاده از رفرش توکن منقضی شده است</value>
+  <data name="RefreshTokenIsUsed" xml:space="preserve">
+    <value>رفرش توکن قبلا استفاده شده است</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>عملیات با موفقیت انجام شد </value>
+  </data>
+  <data name="TokenHasNotClaim" xml:space="preserve">
+    <value>اطلاعات توکن ناقص می باشد</value>
+  </data>
+  <data name="TokenIsExpired" xml:space="preserve">
+    <value>تاریخ انقضای توکن فرا رسیده است ، جهت دریافت توکن جدید میتوانید از سرویس های  گت توکن یا رفرش توکن استفاده نمایید.</value>
+  </data>
+  <data name="TokenIsNotSafeWithSecurityStamp" xml:space="preserve">
+    <value>توکن امن فاقد مهر امنیتی می باشد</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>دسترسی وجود ندارد</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>وضعیت تراکنش نامشخص می باشد</value>
+  </data>
+  <data name="UsernameOrPasswordIsNotCorrect" xml:space="preserve">
+    <value>نام کاربری یا رمز عبور اشتباه است</value>
   </data>
 </root>

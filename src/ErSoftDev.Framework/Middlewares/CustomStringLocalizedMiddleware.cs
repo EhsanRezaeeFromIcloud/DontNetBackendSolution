@@ -4,30 +4,16 @@ using ErSoftDev.Common.Utilities;
 using ErSoftDev.DomainSeedWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
-using Newtonsoft.Json;
-
 
 namespace ErSoftDev.Framework.Middlewares
 {
     public class CustomStringLocalizedMiddleware
 
     {
-        //نحوه ی ایجاد یک میدل ویر به صورت زیر می باشد
-
-        /// <summary>
-        /// جهت دریافت خطای هندل نشده در میدل ویر بعدی
-        /// </summary>
         private readonly RequestDelegate _next;
         private readonly ILogger<CustomStringLocalizedMiddleware> _logger;
         private readonly IStringLocalizer<SharedTranslate> _stringLocalizer;
 
-
-        /// <summary>
-        /// سازنده 
-        /// </summary>
-        /// <param name="next"></param>
-        /// <param name="logger"></param>
-        /// <param name="stringLocalizer"></param>
         public CustomStringLocalizedMiddleware(RequestDelegate next, ILogger<CustomStringLocalizedMiddleware> logger, IStringLocalizer<SharedTranslate> stringLocalizer)
         {
             _next = next;
@@ -35,11 +21,6 @@ namespace ErSoftDev.Framework.Middlewares
             _stringLocalizer = stringLocalizer;
         }
 
-        /// <summary>
-        /// برای پیاده سازی یک میدل ویر باید ساختار به این ترتیب باشد
-        /// </summary>
-        /// <param name="httpContext"></param>
-        /// <returns></returns>
         public async Task InvokeAsync(HttpContext httpContext)
         {
 
@@ -48,14 +29,6 @@ namespace ErSoftDev.Framework.Middlewares
                 culture = "fa-IR";
             var numberInfo = CultureInfo.CreateSpecificCulture(culture).NumberFormat;
             var currentCulture = new CultureInfo(culture);
-            //{
-            //    NumberFormat = numberInfo,
-            //    DateTimeFormat =
-            //        {
-            //            DateSeparator = "/",
-            //            ShortDatePattern = "dd/MM/yyyy"
-            //        }
-            //};
 
             Thread.CurrentThread.CurrentUICulture = currentCulture;
             Thread.CurrentThread.CurrentCulture = currentCulture;
@@ -104,18 +77,5 @@ namespace ErSoftDev.Framework.Middlewares
 
 
         }
-        //private Stream ReplaceBody(HttpResponse response)
-        //{
-        //    var originBody = response.Body;
-        //    response.Body = new MemoryStream();
-        //    return originBody;
-        //}
-
-        //private void ReturnBody(HttpResponse response, Stream originBody)
-        //{
-        //    response.Body.Seek(0, SeekOrigin.Begin);
-        //    response.Body.CopyTo(originBody);
-        //    response.Body = originBody;
-        //}
     }
 }

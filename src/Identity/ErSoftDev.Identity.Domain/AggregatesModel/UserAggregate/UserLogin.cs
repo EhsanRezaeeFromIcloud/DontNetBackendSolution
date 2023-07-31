@@ -1,5 +1,4 @@
 ﻿using ErSoftDev.DomainSeedWork;
-using IdGen;
 using System.Text;
 
 namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate

@@ -10,22 +10,21 @@
     public enum ApiResultErrorCode
     {
         NotFound = 1,
-        BadRequest = 2,
-        LogicError = 3,
-        DbError = 4,
-        AlreadyExists = 5,
-        Unauthorized = 6,
-        TokenIsExpired = 7,
-        TokenHasNotClaim = 8,
-        TokenIsNotSafeWithSecurityStamp = 9,
-        ParametersAreNotValid = 10,
-        PasswordsAreNotEqual = 11,
-        AllFieldsOfAddressMustBeFillOrNonOfFields = 12,
-        UsernameOrPasswordIsNotCorrect = 13,
-        OneOfTheBrowserOrDeviceNameMustBeFill = 14,
-        RefreshTokenIsDeActive = 15,
-        RefreshTokenIsUsed = 16,
-        RefreshTokenIsRevoked = 17,
-        RefreshTokenIsExpire = 18
+        LogicError = 2,
+        AlreadyExists = 3,
+        ParametersAreNotValid = 4,
+        PasswordsAreNotEqual = 5,
+        AllFieldsOfAddressMustBeFillOrNonOfFields = 6,
+        UsernameOrPasswordIsNotCorrect = 7,
+        OneOfTheBrowserOrDeviceNameMustBeFill = 8,
+        RefreshTokenIsDeActive = 9,
+        RefreshTokenIsUsed = 10,
+        RefreshTokenIsRevoked = 11,
+        RefreshTokenIsExpire = 12,
+        TokenIsExpired = 13,
+        TokenHasNotClaim = 14,
+        TokenIsNotSafeWithSecurityStamp = 15,
+        BadRequest = 16,
+        DbError = 17
     }
 }

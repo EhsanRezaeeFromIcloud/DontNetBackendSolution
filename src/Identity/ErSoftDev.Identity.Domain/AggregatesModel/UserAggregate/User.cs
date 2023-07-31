@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using ErSoftDev.DomainSeedWork;
-using ErSoftDev.Framework.IdGenerate;
 
 namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
 {
@@ -91,7 +90,7 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
 
         public string UpdateSecurityStampTokenAndGetRefreshToken(string securityStampToken,
             DateTime refreshTokenExpiry, string? deviceName, string? deviceUniqueId, string? fcmToken, string? browser,
-            IIdGenerator idGenerator)
+            long refreshTokenId, long loginId)
         {
             SecurityStampToken = securityStampToken;
             UpdaterUserId = Id;
@@ -102,10 +101,10 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
                 token.IsActive && token.IsRevoke == false && token.IsUse == false);
             previousRefreshToken?.DeletePreviousRefreshToken();
 
-            _userRefreshTokens.Add(new UserRefreshToken(idGenerator.CreateId(), Id, refreshToken, true, false, false,
+            _userRefreshTokens.Add(new UserRefreshToken(refreshTokenId, Id, refreshToken, true, false, false,
                 refreshTokenExpiry));
 
-            _userLogins.Add(new UserLogin(idGenerator.CreateId(), Id, deviceName, deviceUniqueId, fcmToken, browser));
+            _userLogins.Add(new UserLogin(loginId, Id, deviceName, deviceUniqueId, fcmToken, browser));
 
             return refreshToken;
         }
@@ -139,12 +138,6 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
             return refreshToken;
         }
 
-
-        private string NewRefreshToken()
-        {
-            return string.Concat(Guid.NewGuid().ToString("N"), Guid.NewGuid().ToString("N"));
-        }
-
         public void RevokeRefreshToken(string refreshToken)
         {
             SecurityStampToken = Guid.NewGuid().ToString();
@@ -162,6 +155,11 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
                 throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.RefreshTokenIsExpire);
 
             userRefreshToken.RevokeRefreshToken();
+        }
+
+        private string NewRefreshToken()
+        {
+            return string.Concat(Guid.NewGuid().ToString("N"), Guid.NewGuid().ToString("N"));
         }
     }
 }

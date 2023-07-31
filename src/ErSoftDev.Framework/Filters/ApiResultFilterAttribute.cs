@@ -23,13 +23,13 @@ namespace ErSoftDev.Framework.Filters
             }
             else if (context.Result is BadRequestResult)
             {
-                context.Result = new JsonResult(new ApiResult(stringLocalizer, ApiResultStatusCode.Failed));
+                context.Result = new JsonResult(new ApiResult(stringLocalizer, ApiResultStatusCode.Failed,ApiResultErrorCode.BadRequest));
             }
             else if (context.Result is BadRequestObjectResult badRequestObjectResult)
             {
                 var message = string.Empty;
                 if (badRequestObjectResult.Value is ValidationProblemDetails errors)
-                    message = errors.Errors.Aggregate(message, (current, item) => current + (" | " + item.Key + " Field"));
+                    message = errors.Errors.Aggregate(message, (current, item) => current + (" " + item.Key ));
 
                 context.Result = new JsonResult(new ApiResult(stringLocalizer, ApiResultStatusCode.Failed, ApiResultErrorCode.BadRequest, message));
             }

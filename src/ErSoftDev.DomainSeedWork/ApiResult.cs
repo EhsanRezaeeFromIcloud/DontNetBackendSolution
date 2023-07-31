@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
+using SharedTranslate = ErSoftDev.DomainSeedWork.SharedTranslate;
 
 namespace ErSoftDev.DomainSeedWork
 {

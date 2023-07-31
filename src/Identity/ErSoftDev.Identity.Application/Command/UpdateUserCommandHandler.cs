@@ -26,7 +26,6 @@ namespace ErSoftDev.Identity.Application.Command
             await _userRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
 
             return new ApiResult(_stringLocalizer, ApiResultStatusCode.Success);
-
         }
     }
 }

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllFieldsOfAddressMustBeFillOrNonOfFields" xml:space="preserve">
+    <value>Neither all field off address must be fill nor none of it</value>
+  </data>
   <data name="AlreadyExists" xml:space="preserve">
     <value>The record has already been saved with the submitted details</value>
   </data>
@@ -126,23 +129,44 @@
   <data name="DbError" xml:space="preserve">
     <value>An error occurred in the database</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Operation is failed</value>
+  </data>
   <data name="LogicError" xml:space="preserve">
     <value>A logical error has occurred</value>
   </data>
   <data name="NotFound" xml:space="preserve">
     <value>Recorde not found</value>
   </data>
+  <data name="OneOfTheBrowserOrDeviceNameMustBeFill" xml:space="preserve">
+    <value>One of the browser or device name must be fill</value>
+  </data>
   <data name="ParametersAreNotValid" xml:space="preserve">
     <value>Input parameter is not valid</value>
   </data>
-  <data name="TokenIsExpired" xml:space="preserve">
-    <value>The token expiration date has arrived, you can use GetToken or TokenRefresh services to receive new tokens.</value>
-  </data>
-  <data name="PasswordsAreNotEaual" xml:space="preserve">
+  <data name="PasswordsAreNotEqual" xml:space="preserve">
     <value>Passwords are not equal</value>
+  </data>
+  <data name="RefreshTokenIsDeActive" xml:space="preserve">
+    <value>Refresh token is deactive</value>
+  </data>
+  <data name="RefreshTokenIsExpire" xml:space="preserve">
+    <value>Refresh token is expired</value>
+  </data>
+  <data name="RefreshTokenIsRevoked" xml:space="preserve">
+    <value>Refresh token is revoked earlier</value>
+  </data>
+  <data name="RefreshTokenIsUsed" xml:space="preserve">
+    <value>Refrsht token is used earlier</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Operation is success </value>
   </data>
   <data name="TokenHasNotClaim" xml:space="preserve">
     <value>Token has not claim</value>
+  </data>
+  <data name="TokenIsExpired" xml:space="preserve">
+    <value>The token expiration date has arrived, you can use GetToken or TokenRefresh services to receive new tokens.</value>
   </data>
   <data name="TokenIsNotSafeWithSecurityStamp" xml:space="preserve">
     <value>Token has not security stamp</value>
@@ -150,25 +174,10 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>Request is not authorized</value>
   </data>
-  <data name="AllFieldsOfAddressMustBeFillOrNonOfFields" xml:space="preserve">
-    <value>Neither all field off address must be fill nor none of it</value>
+  <data name="Unknown" xml:space="preserve">
+    <value>Operation Is Unknown</value>
   </data>
   <data name="UsernameOrPasswordIsNotCorrect" xml:space="preserve">
     <value>Username or password is not correct</value>
-  </data>
-  <data name="OneOfTheBrowserOrDeviceNameMustBeFill" xml:space="preserve">
-    <value>One of the browser or device name must be fill</value>
-  </data>
-  <data name="RefreshTokenIsDeActive" xml:space="preserve">
-    <value>Refresh token is deactive</value>
-  </data>
-  <data name="RefreshTokenIsUsed" xml:space="preserve">
-    <value>Refrsht token is used earlier</value>
-  </data>
-  <data name="RefreshTokenIsRevoked" xml:space="preserve">
-    <value>Refresh token is revoked earlier</value>
-  </data>
-  <data name="RefreshTokenIsExpire" xml:space="preserve">
-    <value>Refresh token is expired</value>
   </data>
 </root>
