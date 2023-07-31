@@ -4,6 +4,6 @@ namespace ErSoftDev.Framework.Jwt
 {
     public interface IJwtService
     {
-        Task<ApiResult<TokenResponse>> Generate(TokenRequest tokenRequest);
+        Task<TokenResponse> Generate(TokenRequest tokenRequest);
     }
 }

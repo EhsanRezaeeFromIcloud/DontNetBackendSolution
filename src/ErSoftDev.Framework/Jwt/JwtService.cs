@@ -21,7 +21,7 @@ namespace ErSoftDev.Framework.Jwt
             _stringLocalizer = stringLocalizer;
         }
 
-        public async Task<ApiResult<TokenResponse>> Generate(TokenRequest tokenRequest)
+        public async Task<TokenResponse> Generate(TokenRequest tokenRequest)
         {
             var secretKey = Encoding.UTF8.GetBytes(HighSecurity.JwtSecretKey);
             var encryptKey = Encoding.UTF8.GetBytes(HighSecurity.JwtEncryptKey);
@@ -49,12 +49,11 @@ namespace ErSoftDev.Framework.Jwt
             var securityToken = tokenHandler.CreateToken(descriptor);
             var generatedToken = tokenHandler.WriteToken(securityToken);
 
-            return new ApiResult<TokenResponse>(_stringLocalizer, ApiResultStatusCode.Success,
-                new TokenResponse()
-                {
-                    Token = generatedToken,
-                    TokenExpiry = tokenExpiry
-                });
+            return new TokenResponse()
+            {
+                Token = generatedToken,
+                TokenExpiry = tokenExpiry
+            };
         }
 
         private ClaimsIdentity getClaims(IEnumerable<Claim> subject)

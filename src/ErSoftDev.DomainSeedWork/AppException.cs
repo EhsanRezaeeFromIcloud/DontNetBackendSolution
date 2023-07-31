@@ -11,7 +11,7 @@
             Exception = exception;
         }
         public AppException(Exception? exception, ApiResultStatusCode apiResultStatusCode, ApiResultErrorCode apiResultErrorCode, string? message = null)
-            : base(message ?? apiResultErrorCode.ToString())
+            : base(message ?? String.Empty)
         {
             ApiResultStatusCode = apiResultStatusCode;
             ApiResultErrorCode = apiResultErrorCode;
@@ -19,7 +19,7 @@
         }
 
         public AppException(ApiResultStatusCode apiResultStatusCode, ApiResultErrorCode apiResultErrorCode, string? message = null)
-            : base(message ?? apiResultErrorCode.ToString())
+            : base(message ?? string.Empty)
         {
             ApiResultStatusCode = apiResultStatusCode;
             ApiResultErrorCode = apiResultErrorCode;

@@ -1,5 +1,4 @@
 ﻿using ErSoftDev.DomainSeedWork;
-using Jaeger;
 using System.Text;
 
 namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate

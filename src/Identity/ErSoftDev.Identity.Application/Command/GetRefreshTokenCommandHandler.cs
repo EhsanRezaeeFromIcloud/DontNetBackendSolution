@@ -46,15 +46,15 @@ namespace ErSoftDev.Identity.Application.Command
             {
                 Subject = SetTokenClaim(securityStampToken, user.Id)
             });
-            if (token.Data is null)
+            if (token.Token is null)
                 throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.LogicError);
 
             await _userRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
 
             var response = new RefreshTokenResponse()
             {
-                Token = token.Data.Token,
-                TokenExpiry = token.Data.TokenExpiry,
+                Token = token.Token,
+                TokenExpiry = token.TokenExpiry,
                 RefreshToken = refreshToken,
                 RefreshTokenExpiry = refreshTokenExpiry,
             };

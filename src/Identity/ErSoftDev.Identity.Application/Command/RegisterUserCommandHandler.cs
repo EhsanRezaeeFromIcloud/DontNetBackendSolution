@@ -1,7 +1,6 @@
 ﻿using ErSoftDev.Common.Utilities;
 using ErSoftDev.DomainSeedWork;
 using ErSoftDev.Framework.IdGenerate;
-using ErSoftDev.Framework.Jwt;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;
 using MediatR;
 using Microsoft.Extensions.Localization;

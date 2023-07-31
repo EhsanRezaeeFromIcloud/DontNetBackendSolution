@@ -41,21 +41,21 @@ namespace ErSoftDev.Identity.Application.Command
             var refreshTokenExpiry = DateTime.Now.AddSeconds(_appSetting.Value.Jwt.RefreshTokenExpirySecond);
             var refreshToken = user.UpdateSecurityStampTokenAndGetRefreshToken(securityStampToken,
                 refreshTokenExpiry, request.DeviceName, request.DeviceUniqueId,
-                request.FcmToken, request.Browser, _idGenerator);
+                request.FcmToken, request.Browser, _idGenerator.CreateId(), _idGenerator.CreateId());
 
             var token = await _jwtService.Generate(new TokenRequest()
             {
                 Subject = SetTokenClaim(securityStampToken, user.Id)
             });
-            if (token.Data is null)
+            if (token.Token is null)
                 throw new AppException(ApiResultStatusCode.Failed, ApiResultErrorCode.LogicError);
 
             await _userRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
 
             var response = new LoginResponse()
             {
-                Token = token.Data.Token,
-                TokenExpiry = token.Data.TokenExpiry,
+                Token = token.Token,
+                TokenExpiry = token.TokenExpiry,
                 RefreshToken = refreshToken,
                 RefreshTokenExpiry = refreshTokenExpiry,
             };
