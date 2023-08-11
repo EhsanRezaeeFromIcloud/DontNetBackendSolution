@@ -1,8 +1,7 @@
 ﻿using Autofac;
-using Common.Contracts;
-using ErSoftDev.Common.Contracts;
 using ErSoftDev.Common.Utilities;
 using ErSoftDev.Framework.Behaviors;
+using ErSoftDev.Framework.Log;
 using MediatR;
 
 namespace ErSoftDev.Framework.Configuration

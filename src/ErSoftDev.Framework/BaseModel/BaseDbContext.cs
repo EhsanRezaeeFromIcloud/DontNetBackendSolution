@@ -1,6 +1,6 @@
 ﻿using System.Data;
-using ErSoftDev.Common;
 using ErSoftDev.DomainSeedWork;
+using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.Configuration;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

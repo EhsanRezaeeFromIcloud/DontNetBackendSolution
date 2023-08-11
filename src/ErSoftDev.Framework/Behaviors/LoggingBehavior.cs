@@ -1,6 +1,6 @@
-﻿using ErSoftDev.Common.Contracts;
-using MediatR;
+﻿using MediatR;
 using ErSoftDev.Common.Utilities;
+using ErSoftDev.Framework.Log;
 
 namespace ErSoftDev.Framework.Behaviors
 {

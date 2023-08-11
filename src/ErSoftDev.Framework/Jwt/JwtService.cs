@@ -1,9 +1,9 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Common.Contracts;
-using ErSoftDev.Common;
 using ErSoftDev.DomainSeedWork;
+using ErSoftDev.Framework.BaseApp;
+using ErSoftDev.Framework.Configuration;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;

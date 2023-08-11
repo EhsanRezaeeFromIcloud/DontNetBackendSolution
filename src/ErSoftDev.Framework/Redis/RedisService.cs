@@ -1,6 +1,6 @@
-﻿using Common.Contracts;
-using ErSoftDev.Common;
-using ErSoftDev.Common.Contracts;
+﻿using ErSoftDev.Framework.BaseApp;
+using ErSoftDev.Framework.Configuration;
+using ErSoftDev.Framework.Log;
 using ErSoftDev.Framework.RabbitMq;
 using EventBus.Base.Standard;
 using Microsoft.Extensions.Options;

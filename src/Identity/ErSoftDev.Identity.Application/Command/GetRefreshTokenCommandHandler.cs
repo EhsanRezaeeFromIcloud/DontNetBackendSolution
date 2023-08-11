@@ -1,5 +1,4 @@
-﻿using ErSoftDev.Common;
-using ErSoftDev.DomainSeedWork;
+﻿using ErSoftDev.DomainSeedWork;
 using ErSoftDev.Framework.IdGenerate;
 using ErSoftDev.Framework.Jwt;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
 using Microsoft.Extensions.Localization;
+using ErSoftDev.Framework.BaseApp;
 
 namespace ErSoftDev.Identity.Application.Command
 {

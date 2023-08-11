@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using ErSoftDev.Common;
 using ErSoftDev.Common.Utilities;
 using ErSoftDev.DomainSeedWork;
+using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.IdGenerate;
 using ErSoftDev.Framework.Jwt;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;

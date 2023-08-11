@@ -1,6 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using ErSoftDev.Common;
+using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.Configuration;
 using Configuration = ErSoftDev.Identity.EndPoint.Configuration;
 
@@ -15,7 +15,6 @@ var appSettings = builder.Configuration
 
 var startup = new Configuration(builder.Configuration, builder.Environment);
 startup.ConfigureServices(builder.Services);
-//builder.Services.AddGrpc();
 
 var app = builder.Build();
 

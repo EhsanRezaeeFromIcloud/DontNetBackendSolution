@@ -13,13 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErSoftDev.Framework", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{EB988C13-01AD-45F8-B32B-8CCBB59E234B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErSoftDev.Identity.Application", "src\Identity\ErSoftDev.Identity.Application\ErSoftDev.Identity.Application.csproj", "{7DFA9BD9-934A-4172-97FE-929364A302C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErSoftDev.Identity.Application", "src\Identity\ErSoftDev.Identity.Application\ErSoftDev.Identity.Application.csproj", "{7DFA9BD9-934A-4172-97FE-929364A302C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErSoftDev.Identity.Domain", "src\Identity\ErSoftDev.Identity.Domain\ErSoftDev.Identity.Domain.csproj", "{551E8CE1-D7A6-4918-9D4A-3C0EDAC48D52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErSoftDev.Identity.Domain", "src\Identity\ErSoftDev.Identity.Domain\ErSoftDev.Identity.Domain.csproj", "{551E8CE1-D7A6-4918-9D4A-3C0EDAC48D52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErSoftDev.Identity.Infrastructure", "src\Identity\ErSoftDev.Identity.Infrastructure\ErSoftDev.Identity.Infrastructure.csproj", "{A0D0C469-3E33-41E2-A704-132137725822}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErSoftDev.Identity.Infrastructure", "src\Identity\ErSoftDev.Identity.Infrastructure\ErSoftDev.Identity.Infrastructure.csproj", "{A0D0C469-3E33-41E2-A704-132137725822}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErSoftDev.Identity.EndPoint", "src\Identity\ErSoftDev.Identity.EndPoint\ErSoftDev.Identity.EndPoint.csproj", "{3CC85BA9-6D57-4437-B8BE-0CC228BF1086}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErSoftDev.Identity.EndPoint", "src\Identity\ErSoftDev.Identity.EndPoint\ErSoftDev.Identity.EndPoint.csproj", "{3CC85BA9-6D57-4437-B8BE-0CC228BF1086}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{CBE86CDD-11C3-4704-B9C9-76FAE777670F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErSoftDev.ApiGateway", "src\ApiGateway\ErSoftDev.ApiGateway\ErSoftDev.ApiGateway.csproj", "{EFDD1D73-E49E-4724-828D-B18A861730D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,10 @@ Global
 		{3CC85BA9-6D57-4437-B8BE-0CC228BF1086}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CC85BA9-6D57-4437-B8BE-0CC228BF1086}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CC85BA9-6D57-4437-B8BE-0CC228BF1086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFDD1D73-E49E-4724-828D-B18A861730D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFDD1D73-E49E-4724-828D-B18A861730D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFDD1D73-E49E-4724-828D-B18A861730D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFDD1D73-E49E-4724-828D-B18A861730D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +76,8 @@ Global
 		{551E8CE1-D7A6-4918-9D4A-3C0EDAC48D52} = {EB988C13-01AD-45F8-B32B-8CCBB59E234B}
 		{A0D0C469-3E33-41E2-A704-132137725822} = {EB988C13-01AD-45F8-B32B-8CCBB59E234B}
 		{3CC85BA9-6D57-4437-B8BE-0CC228BF1086} = {EB988C13-01AD-45F8-B32B-8CCBB59E234B}
+		{CBE86CDD-11C3-4704-B9C9-76FAE777670F} = {85F9512F-5485-47FA-A919-3949CF72EDD3}
+		{EFDD1D73-E49E-4724-828D-B18A861730D3} = {CBE86CDD-11C3-4704-B9C9-76FAE777670F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9BC25C3-E9D8-47EF-AD8F-67E01EC454CC}

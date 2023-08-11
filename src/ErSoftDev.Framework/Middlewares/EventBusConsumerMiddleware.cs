@@ -1,6 +1,6 @@
 ﻿using System.Text;
 using Autofac;
-using ErSoftDev.Common;
+using ErSoftDev.Framework.BaseApp;
 using EventBus.Base.Standard;
 using EventBus.RabbitMQ.Standard;
 using Microsoft.AspNetCore.Http;

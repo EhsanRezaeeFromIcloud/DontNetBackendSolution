@@ -1,5 +1,4 @@
-﻿using ErSoftDev.Common;
-using ErSoftDev.Framework.Configuration;
+﻿using ErSoftDev.Framework.Configuration;
 using ErSoftDev.Framework.Middlewares;
 using ErSoftDev.Framework.RabbitMq;
 using Microsoft.AspNetCore.Builder;
@@ -32,10 +31,10 @@ namespace ErSoftDev.Framework.BaseApp
             services.Configure<AppSetting>(Configuration.GetSection(_configKey));
             services.AddSingleton(_appSetting);
             services.AddRabbitMqConnection(_appSetting);
-            services.AddRabbitMqRegistration();
+            services.AddRabbitMqRegistration(_appSetting);
             //services.AddCustomHangfire(_appSetting);
             services.AddCustomLocalization();
-            services.AddApplicationDbContext(_appSetting);
+            //services.AddApplicationDbContext(_appSetting);
             services.AddMinimalMvc();
             services.AddJwtAuthentication(_appSetting.Jwt);
             services.AddCustomApiVersioning();
@@ -50,7 +49,7 @@ namespace ErSoftDev.Framework.BaseApp
         {
             app.UseCustomRequestLocalization();
             app.UseCustomExceptionMiddleware();
-            app.UseRateLimitationMiddleware();
+            //app.UseRateLimitationMiddleware();
             app.UseHstsNotInDevelopment(env);
             app.UseHttpsRedirection();
             app.UseCustomSwaggerUi(_appSetting.Swagger);

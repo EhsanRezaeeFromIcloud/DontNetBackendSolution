@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
-using Common.Contracts;
 using ErSoftDev.DomainSeedWork;
+using ErSoftDev.Framework.Configuration;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;
 using IdGen;
 using Microsoft.EntityFrameworkCore;

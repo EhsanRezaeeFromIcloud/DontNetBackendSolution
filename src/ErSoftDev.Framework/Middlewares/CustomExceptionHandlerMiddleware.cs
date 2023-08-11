@@ -1,8 +1,7 @@
 ﻿using System.Globalization;
-using ErSoftDev.Common;
-using ErSoftDev.Common.Contracts;
-using ErSoftDev.Common.Utilities;
 using ErSoftDev.DomainSeedWork;
+using ErSoftDev.Framework.BaseApp;
+using ErSoftDev.Framework.Log;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
@@ -36,7 +35,7 @@ namespace ErSoftDev.Framework.Middlewares
             try
             {
                 httpContext.Request.Headers.TryGetValue("Culture", out var culture);
-                if (!culture.ToString().HasValue())
+                if (string.IsNullOrWhiteSpace(culture.ToString()))
                     culture = "fa-IR";
                 var dateInfo = CultureInfo.CreateSpecificCulture("en-us").DateTimeFormat;
                 var numberInfo = CultureInfo.CreateSpecificCulture("en-us").NumberFormat;
