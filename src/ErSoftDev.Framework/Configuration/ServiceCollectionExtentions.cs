@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Security.Claims;
 using System.Text;
-using ErSoftDev.Common;
 using ErSoftDev.Common.Utilities;
 using ErSoftDev.DomainSeedWork;
 using ErSoftDev.Framework.BaseModel;
@@ -30,7 +29,8 @@ using OpenTracing;
 using OpenTracing.Util;
 using OpenTracing.Contrib.NetCore.Configuration;
 using StackExchange.Redis;
-
+using ErSoftDev.Framework.BaseApp;
+using ErSoftDev.Framework.Jwt;
 
 namespace ErSoftDev.Framework.Configuration
 {
@@ -53,7 +53,8 @@ namespace ErSoftDev.Framework.Configuration
                     options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 })
-                .AddCors().SetCompatibilityVersion(CompatibilityVersion.Latest);
+                .AddCors()
+                .SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
         public static void AddApplicationDbContext(this IServiceCollection serviceCollection, AppSetting appSetting)
@@ -64,7 +65,7 @@ namespace ErSoftDev.Framework.Configuration
                     });
         }
 
-        public static void AddJwtAuthentication(this IServiceCollection services, ErSoftDev.Common.Jwt jwt)
+        public static void AddJwtAuthentication(this IServiceCollection services, BaseApp.Jwt jwt)
         {
             services.AddAuthentication(options =>
             {
@@ -162,8 +163,11 @@ namespace ErSoftDev.Framework.Configuration
             });
         }
 
-        public static void AddCustomSwaggerGen(this IServiceCollection serviceCollection, ErSoftDev.Common.Swagger swagger)
+        public static void AddCustomSwaggerGen(this IServiceCollection serviceCollection, BaseApp.Swagger swagger)
         {
+            if (swagger is null)
+                return;
+
             serviceCollection.AddSwaggerGen(options =>
             {
                 var xmlDocPath = Path.Combine(AppContext.BaseDirectory, swagger.XmlCommentFileName);
@@ -245,7 +249,7 @@ namespace ErSoftDev.Framework.Configuration
             serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
         }
 
-        public static void AddRedis(this IServiceCollection serviceCollection, ErSoftDev.Common.Redis appSetting)
+        public static void AddRedis(this IServiceCollection serviceCollection, BaseApp.Redis appSetting)
         {
             try
             {
@@ -282,6 +286,9 @@ namespace ErSoftDev.Framework.Configuration
 
         public static void AddJaeger(this IServiceCollection serviceCollection, AppSetting appSetting)
         {
+            if (appSetting.Jaeger is null)
+                return;
+
             serviceCollection.AddSingleton<ITracer>(sp =>
             {
                 var serviceName = sp.GetRequiredService<IWebHostEnvironment>().ApplicationName;

@@ -1,4 +1,4 @@
-﻿using Common.Contracts;
+﻿using ErSoftDev.Framework.Configuration;
 using IdGen;
 
 namespace ErSoftDev.Framework.IdGenerate

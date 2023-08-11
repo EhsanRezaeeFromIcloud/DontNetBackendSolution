@@ -1,6 +1,4 @@
-﻿using ErSoftDev.DomainSeedWork;
-
-namespace ErSoftDev.Framework.Jwt
+﻿namespace ErSoftDev.Framework.Jwt
 {
     public interface IJwtService
     {

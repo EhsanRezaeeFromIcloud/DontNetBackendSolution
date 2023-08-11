@@ -1,4 +1,4 @@
-﻿using ErSoftDev.Common;
+﻿using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.BaseModel;
 using ErSoftDev.Identity.Domain.AggregatesModel.RoleAggregate;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;

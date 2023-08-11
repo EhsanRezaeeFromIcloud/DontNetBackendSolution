@@ -1,4 +1,4 @@
-﻿namespace Common.Contracts
+﻿namespace ErSoftDev.Framework.Configuration
 {
     public interface IScopedDependency
     {

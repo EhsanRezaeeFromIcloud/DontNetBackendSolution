@@ -1,4 +1,4 @@
-﻿namespace ErSoftDev.Common
+﻿namespace ErSoftDev.Framework.BaseApp
 {
     public class AppSetting
     {
@@ -6,14 +6,14 @@
         public string WelcomeNote { get; set; }
         public Logging Logging { get; set; }
         public Jwt Jwt { get; set; }
-        public Swagger Swagger { get; set; }
+        public Swagger? Swagger { get; set; }
         public List<Configuration> Configurations { get; set; }
         public EventLog EventLog { get; set; }
-        public EventBusRabbitMq EventBusRabbitMq { get; set; }
+        public EventBusRabbitMq? EventBusRabbitMq { get; set; }
         public NotificationEmail NotificationEmail { get; set; }
-        public Redis Redis { get; set; }
+        public Redis? Redis { get; set; }
         public Hangfire Hangfire { get; set; }
-        public Jaeger Jaeger { get; set; }
+        public Jaeger? Jaeger { get; set; }
     }
 
     public class Jaeger

@@ -1,5 +1,4 @@
-﻿
-namespace ErSoftDev.Common
+﻿namespace ErSoftDev.Framework.Jwt
 {
     public static class HighSecurity
     {

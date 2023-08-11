@@ -6,8 +6,11 @@ namespace ErSoftDev.Framework.Middlewares
 {
     public static class CustomSwaggerUiMiddleware
     {
-        public static void UseCustomSwaggerUi(this IApplicationBuilder applicationBuilder, Common.Swagger swagger)
+        public static void UseCustomSwaggerUi(this IApplicationBuilder applicationBuilder, BaseApp.Swagger? swagger)
         {
+            if (swagger == null)
+                return;
+
             applicationBuilder.UseSwagger();
 
             var versionCount = swagger.VersionCount;
@@ -17,7 +20,6 @@ namespace ErSoftDev.Framework.Middlewares
 
             applicationBuilder.UseSwaggerUI(options =>
             {
-
                 for (var i = 0; i < versionCount; i++)
                 {
                     options.SwaggerEndpoint($"/swagger/v{(versionStart + versionStep)}/swagger.json",
@@ -26,7 +28,6 @@ namespace ErSoftDev.Framework.Middlewares
                 }
 
                 options.DocExpansion(DocExpansion.None);
-
             });
         }
     }

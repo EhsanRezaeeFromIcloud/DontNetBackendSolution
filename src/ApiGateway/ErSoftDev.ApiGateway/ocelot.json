@@ -1,0 +1,69 @@
+{
+  //"HttpHandlerOptions": {
+  //  "UseTracing": true
+  //},
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5003" //,
+    //"UseServiceDiscovery": true,
+    //"ServiceDiscoveryProvider": {
+    //  "Scheme": "http",
+    //  "Host": "localhost",
+    //  "Port": 8500,
+    //  "Type": "Consul"
+    //}
+  },
+  "Routes": [
+    {
+      //"UseServiceDiscovery": true,
+      "ServiceName": "Identity",
+      "DownstreamPathTemplate": "/api/{version}/Account/Register",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "SwaggerKey": "IdentitySwagger",
+      "UpstreamPathTemplate": "/api/{version}/Account/Register",
+      "UpstreamHttpMethod": [ "POST", "GET" ]
+    } //,
+    //{
+    //  "UseServiceDiscovery": true,
+    //  "ServiceName": "MessageQueue",
+    //  "DownstreamPathTemplate": "/MessageQueue/{everything}",
+    //  "DownstreamScheme": "https",
+    //  "SwaggerKey": "MessageQueue",
+    //  "UpstreamPathTemplate": "/MessageQueue/{everything}",
+    //  "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+    //  "AuthenticationOptions": {
+    //    "AuthenticationProviderKey": "Bearer",
+    //    "AllowedScopes": []
+    //  }
+    //}
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "IdentitySwagger",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "IdentitySwagger",
+          //"Version": "v1",
+          "Url": "https://localhost:5002/swagger/index.html"
+        }
+      ]
+    } //,
+    //{
+    //  "Key": "MessageQueue",
+    //  "TransformByOcelotConfig": true,
+    //  "Config": [
+    //    {
+    //      "Name": "MessageQueue",
+    //      "Version": "v1",
+    //      "Url": "https://localhost:44308/swagger/v1/swagger.json"
+    //    }
+    //  ]
+    //}
+  ]
+}

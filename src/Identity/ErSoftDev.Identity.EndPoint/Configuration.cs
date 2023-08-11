@@ -1,8 +1,5 @@
-﻿using ErSoftDev.Common;
-using ErSoftDev.Framework.BaseApp;
-using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;
+﻿using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Identity.Infrastructure;
-using ErSoftDev.Identity.Infrastructure.Repositories;
 
 namespace ErSoftDev.Identity.EndPoint
 {

@@ -1,8 +1,6 @@
 ﻿using Autofac;
-using Common;
-using Common.Contracts;
-using ErSoftDev.Common;
-using ErSoftDev.Common.Contracts;
+using ErSoftDev.Framework.BaseApp;
+using ErSoftDev.Framework.Log;
 using EventBus.Base.Standard;
 using EventBus.RabbitMQ.Standard;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,8 +10,11 @@ namespace ErSoftDev.Framework.RabbitMq
 {
     public static class Registration
     {
-        public static IServiceCollection AddRabbitMqRegistration(this IServiceCollection services)
+        public static IServiceCollection? AddRabbitMqRegistration(this IServiceCollection? services, AppSetting appSetting)
         {
+            if (appSetting.EventBusRabbitMq is null)
+                return null;
+
             services.AddSingleton<IEventBus, EventBusRabbitMqService>(sp =>
             {
                 var rabbitMqPersistentConnection = sp.GetRequiredService<IRabbitMqPersistentConnection>();

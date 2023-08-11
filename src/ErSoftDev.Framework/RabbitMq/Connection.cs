@@ -1,6 +1,4 @@
-﻿using System;
-using Common;
-using ErSoftDev.Common;
+﻿using ErSoftDev.Framework.BaseApp;
 using EventBus.RabbitMQ.Standard;
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
@@ -9,8 +7,11 @@ namespace ErSoftDev.Framework.RabbitMq
 {
     public static class Connection
     {
-        public static IServiceCollection AddRabbitMqConnection(this IServiceCollection services, AppSetting appSetting)
+        public static IServiceCollection? AddRabbitMqConnection(this IServiceCollection services, AppSetting appSetting)
         {
+            if (appSetting.EventBusRabbitMq is null)
+                return null;
+
             services.AddSingleton<IRabbitMqPersistentConnection>(_ =>
             {
                 var factory = new ConnectionFactory

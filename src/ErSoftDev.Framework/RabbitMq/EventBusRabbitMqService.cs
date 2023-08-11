@@ -1,8 +1,8 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using Autofac;
-using ErSoftDev.Common;
-using ErSoftDev.Common.Contracts;
+using ErSoftDev.Framework.BaseApp;
+using ErSoftDev.Framework.Log;
 using EventBus.Base.Standard;
 using EventBus.RabbitMQ.Standard;
 using Microsoft.Extensions.Options;
