@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErSoftDev.Identity.EndPoint
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{CBE86CDD-11C3-4704-B9C9-76FAE777670F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErSoftDev.ApiGateway", "src\ApiGateway\ErSoftDev.ApiGateway\ErSoftDev.ApiGateway.csproj", "{EFDD1D73-E49E-4724-828D-B18A861730D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErSoftDev.ApiGateway", "src\ApiGateway\ErSoftDev.ApiGateway\ErSoftDev.ApiGateway.csproj", "{EFDD1D73-E49E-4724-828D-B18A861730D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
