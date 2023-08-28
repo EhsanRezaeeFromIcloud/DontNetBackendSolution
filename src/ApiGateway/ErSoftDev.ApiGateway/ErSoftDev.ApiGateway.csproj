@@ -13,11 +13,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+    <PackageReference Include="MMLib.SwaggerForOcelot" Version="7.0.0" />
     <PackageReference Include="Ocelot" Version="19.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\ErSoftDev.Framework\ErSoftDev.Framework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Swagger\Docs\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

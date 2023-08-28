@@ -1,4 +1,5 @@
 ﻿using ErSoftDev.Framework.BaseApp;
+using ErSoftDev.Framework.Configuration;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -16,17 +17,20 @@ namespace ErSoftDev.ApiGateway
                 .AddEnvironmentVariables()
                 .AddJsonFile("ocelot.json", optional: true, reloadOnChange: true)
                 .Build());
+            services.AddSwaggerForOcelot(Configuration);
             services.AddOcelot();
-            //services.AddSwaggerForOcelot(Configuration);
 
             base.ConfigureServices(services);
         }
 
         public override void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppSetting appsetting)
         {
+            base.Configure(app, env, appsetting);
+
+            app.UseSwaggerForOcelotUI();
             app.UseOcelot();
 
-            base.Configure(app, env, appsetting);
+
         }
     }
 }

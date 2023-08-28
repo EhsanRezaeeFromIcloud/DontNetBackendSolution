@@ -2,7 +2,6 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.Configuration;
-using ErSoftDev.Framework.Middlewares;
 using Configuration = ErSoftDev.ApiGateway.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
