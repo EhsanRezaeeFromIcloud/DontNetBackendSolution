@@ -69,7 +69,7 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
                 var addressPropertiesAtLeastHasOneNotValue = false;
                 foreach (var property in addressProperty)
                 {
-                    var value = property.GetValue(this, null);
+                    var value = property.GetValue(address, null);
                     if (value != null)
                         addressPropertiesAtLeastHasOneValue = true;
                     else

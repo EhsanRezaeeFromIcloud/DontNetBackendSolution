@@ -157,7 +157,7 @@
     <value>Refresh token is revoked earlier</value>
   </data>
   <data name="RefreshTokenIsUsed" xml:space="preserve">
-    <value>Refrsht token is used earlier</value>
+    <value>Refresh token is used earlier</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>Operation is success </value>
@@ -179,5 +179,11 @@
   </data>
   <data name="UsernameOrPasswordIsNotCorrect" xml:space="preserve">
     <value>Username or password is not correct</value>
+  </data>
+  <data name="RequestHasNotToken" xml:space="preserve">
+    <value>Request has not token</value>
+  </data>
+  <data name="TokenIsNotValid" xml:space="preserve">
+    <value>Token is not valid</value>
   </data>
 </root>
