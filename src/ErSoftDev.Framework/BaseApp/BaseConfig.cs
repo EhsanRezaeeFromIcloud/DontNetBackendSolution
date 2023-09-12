@@ -34,7 +34,6 @@ namespace ErSoftDev.Framework.BaseApp
             services.AddRabbitMqRegistration(_appSetting);
             //services.AddCustomHangfire(_appSetting);
             services.AddCustomLocalization();
-            //services.AddApplicationDbContext(_appSetting);
             services.AddMinimalMvc();
             services.AddJwtAuthentication(_appSetting.Jwt);
             services.AddCustomApiVersioning();
@@ -42,7 +41,6 @@ namespace ErSoftDev.Framework.BaseApp
             services.AddControllers();
             services.AddJaeger(_appSetting);
             //services.AddHangfire(configuration => configuration.UseMediatR());
-            services.AddControllers();
         }
 
         public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env, /*IOptions<AppSetting>*/ AppSetting appsetting)

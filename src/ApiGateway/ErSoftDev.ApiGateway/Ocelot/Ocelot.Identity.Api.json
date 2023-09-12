@@ -1,0 +1,75 @@
+{
+  "Routes": [
+    {
+      //"UseServiceDiscovery": true,
+      //"ServiceName": "Identity",
+      "UpstreamPathTemplate": "/api/{version}/Account/Login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/{version}/Account/Login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "SwaggerKey": "Identity"
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Account/Register",
+      "UpstreamHttpMethod": [ "POST", "GET" ],
+      "DownstreamPathTemplate": "/api/{version}/Account/Register",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "SwaggerKey": "Identity"
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Account/Update",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/{version}/Account/Update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
+      "SwaggerKey": "Identity"
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Account/GetRefreshToken",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/{version}/Account/GetRefreshToken",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "SwaggerKey": "Identity"
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Account/RevokeRefreshToken",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/{version}/Account/RevokeRefreshToken",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "SwaggerKey": "Identity"
+    }
+  ]
+}

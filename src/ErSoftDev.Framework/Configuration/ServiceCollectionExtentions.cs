@@ -53,8 +53,7 @@ namespace ErSoftDev.Framework.Configuration
                     options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 })
-                .AddCors()
-                .SetCompatibilityVersion(CompatibilityVersion.Latest);
+                .AddCors();
         }
 
         public static void AddApplicationDbContext(this IServiceCollection serviceCollection, AppSetting appSetting)
@@ -106,14 +105,12 @@ namespace ErSoftDev.Framework.Configuration
                     OnAuthenticationFailed = async context =>
                      {
                          if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
-                         {
-                             var stringLocalizer = context.HttpContext.RequestServices
-                                 .GetRequiredService<IStringLocalizer<SharedTranslate>>();
-
                              throw new AppException(new Exception(), ApiResultStatusCode.Failed,
-                                 ApiResultErrorCode.TokenIsExpired, stringLocalizer["TokenIsExpired"]);
-                         }
+                                 ApiResultErrorCode.TokenIsExpired);
 
+                         if (context.Exception.GetType() != typeof(AppException))
+                             throw new AppException(new Exception(), ApiResultStatusCode.Failed,
+                                 ApiResultErrorCode.TokenIsNotValid);
                      },
                     OnTokenValidated = async context =>
                     {

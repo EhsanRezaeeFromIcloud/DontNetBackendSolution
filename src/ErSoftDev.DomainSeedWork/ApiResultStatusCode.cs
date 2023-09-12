@@ -25,6 +25,8 @@
         TokenHasNotClaim = 14,
         TokenIsNotSafeWithSecurityStamp = 15,
         BadRequest = 16,
-        DbError = 17
+        DbError = 17,
+        RequestHasNotToken=18,
+        TokenIsNotValid=19
     }
 }

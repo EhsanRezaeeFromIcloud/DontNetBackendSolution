@@ -12,9 +12,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Jwt\**" />
+    <Content Remove="Jwt\**" />
+    <EmbeddedResource Remove="Jwt\**" />
+    <None Remove="Jwt\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="ocelot.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
     <PackageReference Include="MMLib.SwaggerForOcelot" Version="7.0.0" />
     <PackageReference Include="Ocelot" Version="19.0.2" />
+    <PackageReference Include="Ocelot.Cache.CacheManager" Version="19.0.2" />
+    <PackageReference Include="Ocelot.Provider.Polly" Version="19.0.2" />
   </ItemGroup>
 
   <ItemGroup>

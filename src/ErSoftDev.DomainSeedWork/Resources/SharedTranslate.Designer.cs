@@ -187,6 +187,15 @@ namespace ErSoftDev.DomainSeedWork.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to درخواست ارسال شده فاقد توکن می باشد.
+        /// </summary>
+        internal static string RequestHasNotToken {
+            get {
+                return ResourceManager.GetString("RequestHasNotToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to عملیات با موفقیت انجام شد .
         /// </summary>
         internal static string Success {
@@ -219,6 +228,15 @@ namespace ErSoftDev.DomainSeedWork.Resources {
         internal static string TokenIsNotSafeWithSecurityStamp {
             get {
                 return ResourceManager.GetString("TokenIsNotSafeWithSecurityStamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to توکن معتبر نمی باشد.
+        /// </summary>
+        internal static string TokenIsNotValid {
+            get {
+                return ResourceManager.GetString("TokenIsNotValid", resourceCulture);
             }
         }
         

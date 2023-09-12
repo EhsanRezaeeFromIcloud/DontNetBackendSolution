@@ -180,4 +180,10 @@
   <data name="UsernameOrPasswordIsNotCorrect" xml:space="preserve">
     <value>نام کاربری یا رمز عبور اشتباه است</value>
   </data>
+  <data name="RequestHasNotToken" xml:space="preserve">
+    <value>درخواست ارسالی فاقد توکن می باشد</value>
+  </data>
+  <data name="TokenIsNotValid" xml:space="preserve">
+    <value>توکن معتبر نمی باشد</value>
+  </data>
 </root>
