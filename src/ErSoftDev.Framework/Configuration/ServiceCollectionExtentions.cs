@@ -73,9 +73,7 @@ namespace ErSoftDev.Framework.Configuration
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
-                //var secretKey = Encoding.UTF8.GetBytes(jwt.SecretKey);
                 var secretKey = Encoding.UTF8.GetBytes(HighSecurity.JwtSecretKey);
-                //var encryptKey = Encoding.UTF8.GetBytes(jwt.EncryptKey);
                 var encryptKey = Encoding.UTF8.GetBytes(HighSecurity.JwtEncryptKey);
                 var issuer = jwt.Issuer;
                 var audience = jwt.Audience;
@@ -114,32 +112,16 @@ namespace ErSoftDev.Framework.Configuration
                      },
                     OnTokenValidated = async context =>
                     {
-                        var stringLocalizer = context.HttpContext.RequestServices.GetRequiredService<IStringLocalizer<SharedTranslate>>();
-                        //var ewaysBackendCoreService = context.HttpContext.RequestServices
-                        //    .GetRequiredService<IEwaysBackendCoreServiceConfig>();
+                        var claimsIdentity = context.Principal?.Identity as ClaimsIdentity;
+                        if (claimsIdentity?.Claims?.Any() != true)
+                            throw new AppException(new Exception(), ApiResultStatusCode.Failed,
+                                ApiResultErrorCode.TokenHasNotClaim);
 
-                        var claimsIdentity = context.Principal.Identity as ClaimsIdentity;
-                        if (claimsIdentity.Claims?.Any() != true)
-                            throw new AppException(new Exception(), ApiResultStatusCode.Failed, ApiResultErrorCode.TokenHasNotClaim);
-
-                        var securityStamp = claimsIdentity.FindFirstValue(new ClaimsIdentityOptions().SecurityStampClaimType);
+                        var securityStamp =
+                            claimsIdentity.FindFirstValue(new ClaimsIdentityOptions().SecurityStampClaimType);
                         if (!securityStamp.HasValue())
-                            throw new AppException(new Exception(), ApiResultStatusCode.Failed, ApiResultErrorCode.TokenIsNotSafeWithSecurityStamp);
-
-                        //var isThereSecurityStamp = ResourceManager.ApplicationEndPointPassword.AreValueValid(new Guid(securityStamp));
-                        //if (!isThereSecurityStamp)
-                        //{
-                        //var siteInfo = await ewaysBackendCoreService.GetEwaysSiteBySecurityStampGrpc(
-                        //    new GetEwaysSiteBySecurityStmapRequestGrpc() { TokenSecurityStamp = securityStamp },
-                        //    CancellationToken.None);
-
-                        //if (siteInfo.Status != (int)ApiResultStatusCode.Success)
-                        //    throw new AppException(new Exception(), ApiResultStatusCode.Failed, ApiResultErrorCode.ErrorHappenInAuthenticateUser);
-
-                        //if (siteInfo.Data == null)
-                        //    throw new AppException(new Exception(), ApiResultStatusCode.Failed, ApiResultErrorCode.Unauthorized);
-                        //}
-
+                            throw new AppException(new Exception(), ApiResultStatusCode.Failed,
+                                ApiResultErrorCode.TokenIsNotSafeWithSecurityStamp);
 
                     }
                 };
