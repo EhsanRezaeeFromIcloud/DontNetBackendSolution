@@ -1,9 +1,11 @@
 ﻿using System.Linq.Expressions;
+using System.Threading;
 using ErSoftDev.DomainSeedWork;
 using ErSoftDev.Framework.Configuration;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;
 using IdGen;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace ErSoftDev.Identity.Infrastructure.Repositories
 {
@@ -59,6 +61,12 @@ namespace ErSoftDev.Identity.Infrastructure.Repositories
                 .Include(user => user.UserLogins)
                 .Include(user => user.UserRefreshTokens)
                 .FirstOrDefaultAsync(user => user.Id == refreshTokenResponse.First().UserId);
+        }
+
+        public async Task<User?> GetUserBySecurityStampToken(string securityStampToken, CancellationToken cancellationToken)
+        {
+            return await _identityDbContext.Users.FirstOrDefaultAsync(
+                user => user.SecurityStampToken == securityStampToken, cancellationToken);
         }
     }
 }

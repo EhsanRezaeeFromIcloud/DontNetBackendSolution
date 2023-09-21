@@ -9,5 +9,7 @@ namespace ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate
         Task<User?> GetUser(long id);
 
         Task<User?> GetByRefreshToken(string refreshToken);
+
+        Task<User?> GetUserBySecurityStampToken(string securityStampToken, CancellationToken cancellationToken);
     }
 }
