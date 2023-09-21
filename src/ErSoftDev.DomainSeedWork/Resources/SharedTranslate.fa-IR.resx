@@ -186,4 +186,7 @@
   <data name="TokenIsNotValid" xml:space="preserve">
     <value>توکن معتبر نمی باشد</value>
   </data>
+  <data name="SecurityStampTokenIsNotValid" xml:space="preserve">
+    <value>شناسه امنیتی داخل توکن معتبر نمی باشد</value>
+  </data>
 </root>

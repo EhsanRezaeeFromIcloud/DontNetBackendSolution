@@ -186,4 +186,7 @@
   <data name="TokenIsNotValid" xml:space="preserve">
     <value>Token is not valid</value>
   </data>
+  <data name="SecurityStampTokenIsNotValid" xml:space="preserve">
+    <value>Security stamp token is not valid</value>
+  </data>
 </root>

@@ -34,6 +34,7 @@
         public string Audience { get; set; }
         public long TokenExpirySecond { get; set; }
         public long RefreshTokenExpirySecond { get; set; }
+        public string? IdentityUrl { get; set; }
     }
 
     public class Swagger

@@ -127,8 +127,6 @@ namespace ErSoftDev.Framework.Configuration
                 };
 
             });
-
-
         }
 
         public static void AddCustomApiVersioning(this IServiceCollection services)

@@ -40,7 +40,7 @@
         }
       ],
       //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "Bearer",
+      //  "AuthenticationProviderKey": "IdentityApiKey",
       //  "AllowedScopes": []
       //},
       "SwaggerKey": "Identity"

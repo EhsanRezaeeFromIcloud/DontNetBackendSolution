@@ -196,6 +196,15 @@ namespace ErSoftDev.DomainSeedWork.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to شناسه امنیتی داخل توکن معتبر نمی باشد.
+        /// </summary>
+        internal static string SecurityStampTokenIsNotValid {
+            get {
+                return ResourceManager.GetString("SecurityStampTokenIsNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to عملیات با موفقیت انجام شد .
         /// </summary>
         internal static string Success {

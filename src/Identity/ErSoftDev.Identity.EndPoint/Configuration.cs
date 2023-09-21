@@ -7,6 +7,7 @@ namespace ErSoftDev.Identity.EndPoint
     {
         public Configuration(IConfiguration configuration, IHostEnvironment environment) : base(configuration, environment)
         {
+            Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
         }
 
         public override void ConfigureServices(IServiceCollection services)

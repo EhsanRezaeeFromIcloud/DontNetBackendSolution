@@ -1,8 +1,7 @@
-﻿using ErSoftDev.Framework.BaseApp;
+﻿using ErSoftDev.ApiGateway.Extensions;
+using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.Configuration;
-using ErSoftDev.Framework.Middlewares;
-using ErSoftDev.Framework.RabbitMq;
-using Ocelot.DependencyInjection;
+using ErSoftDev.Identity.EndPoint.Grpc.Protos;
 using Ocelot.Middleware;
 
 namespace ErSoftDev.ApiGateway
@@ -22,12 +21,17 @@ namespace ErSoftDev.ApiGateway
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddGrpcClient<AccountGrpcService.AccountGrpcServiceClient>(options =>
+                options.Address = new Uri(_appSetting.Jwt.IdentityUrl!));
+
             services.Configure<AppSetting>(AppConfiguration.GetSection(_configKey));
+            services.AddGrpc();
             services.AddSingleton(_appSetting);
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-            services.AddJwtAuthentication(_appSetting.Jwt);
+            services.AddCustomApiGatewayJwtAuthentication(_appSetting.Jwt);
             services.AddCustomLocalization();
             services.AddJaeger(_appSetting);
         }
@@ -52,6 +56,9 @@ namespace ErSoftDev.ApiGateway
                     async context => { await context.Response.WriteAsync(appsetting.WelcomeNote ?? ""); });
                 builder.MapControllers();
             });
+
+
+
         }
     }
 }
