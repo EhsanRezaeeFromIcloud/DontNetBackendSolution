@@ -30,7 +30,7 @@ using OpenTracing.Util;
 using OpenTracing.Contrib.NetCore.Configuration;
 using StackExchange.Redis;
 using ErSoftDev.Framework.BaseApp;
-using ErSoftDev.Framework.Jwt;
+using Consul;
 
 namespace ErSoftDev.Framework.Configuration
 {
@@ -319,6 +319,17 @@ namespace ErSoftDev.Framework.Configuration
 
             services.AddHangfireServer();
 
+        }
+
+        public static void AddCustomConsul(this IServiceCollection serviceCollection, AppSetting appSetting)
+        {
+            if (appSetting.ServiceDiscoveryConfig is null)
+                return;
+
+            serviceCollection.AddSingleton<IConsulClient, ConsulClient>(p => new ConsulClient(consulConfig =>
+            {
+                consulConfig.Address = new Uri(appSetting.ServiceDiscoveryConfig.ConsulUrl);
+            }));
         }
     }
 }

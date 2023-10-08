@@ -99,6 +99,7 @@ namespace ErSoftDev.Framework.Middlewares
             }
             catch (Exception ex)
             {
+
                 _logger.LogFatal("ExceptionHandler", new { Exception = ex });
 
                 httpContext.Response.ContentType = "Application/json";

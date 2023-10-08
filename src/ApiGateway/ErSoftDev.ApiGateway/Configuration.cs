@@ -2,7 +2,9 @@
 using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.Configuration;
 using ErSoftDev.Identity.EndPoint.Grpc.Protos;
+using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Polly;
 
 namespace ErSoftDev.ApiGateway
 {
@@ -56,9 +58,6 @@ namespace ErSoftDev.ApiGateway
                     async context => { await context.Response.WriteAsync(appsetting.WelcomeNote ?? ""); });
                 builder.MapControllers();
             });
-
-
-
         }
     }
 }

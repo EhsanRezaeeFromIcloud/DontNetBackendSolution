@@ -3,7 +3,9 @@ using Autofac.Extensions.DependencyInjection;
 using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.Configuration;
 using MMLib.SwaggerForOcelot.DependencyInjection;
+using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
+using Ocelot.Provider.Consul;
 using Ocelot.Provider.Polly;
 using Configuration = ErSoftDev.ApiGateway.Configuration;
 
@@ -15,13 +17,16 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).Conf
 var appConfig = new Configuration(builder.Configuration, builder.Environment);
 appConfig.ConfigureServices(builder.Services);
 
-var ocelot = "Ocelot";
+var ocelot = "Ocelot/" + builder.Environment.EnvironmentName + "";
 
 builder.Configuration.AddOcelotWithSwaggerSupport(options =>
 {
     options.Folder = ocelot;
 });
-builder.Services.AddOcelot(builder.Configuration).AddPolly();
+builder.Services.AddOcelot(builder.Configuration)
+    .AddCacheManager(x => { x.WithDictionaryHandle(); })
+    .AddPolly()
+    .AddConsul();
 builder.Services.AddSwaggerForOcelot(builder.Configuration);
 
 var appSettings = builder.Configuration

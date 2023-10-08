@@ -8,6 +8,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["src/ApiGateway/ErSoftDev.ApiGateway/ErSoftDev.ApiGateway.csproj", "src/ApiGateway/ErSoftDev.ApiGateway/"]
+COPY ["src/ErSoftDev.Framework/ErSoftDev.Framework.csproj", "src/ErSoftDev.Framework/"]
+COPY ["src/ErSoftDev.Common/ErSoftDev.Common.csproj", "src/ErSoftDev.Common/"]
+COPY ["src/ErSoftDev.DomainSeedWork/ErSoftDev.DomainSeedWork.csproj", "src/ErSoftDev.DomainSeedWork/"]
 RUN dotnet restore "src/ApiGateway/ErSoftDev.ApiGateway/ErSoftDev.ApiGateway.csproj"
 COPY . .
 WORKDIR "/src/src/ApiGateway/ErSoftDev.ApiGateway"

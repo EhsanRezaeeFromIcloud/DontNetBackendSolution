@@ -1,5 +1,4 @@
 ﻿using System.Security.Claims;
-using ErSoftDev.Framework.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
