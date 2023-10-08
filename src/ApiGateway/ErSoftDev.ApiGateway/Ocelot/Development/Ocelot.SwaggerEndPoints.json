@@ -10,17 +10,6 @@
           "Url": "https://localhost:5002/swagger/v1.0/swagger.json"
         }
       ]
-    },
-    {
-      "Key": "MyTestProject",
-      "TransformByOcelotConfig": false,
-      "Config": [
-        {
-          "Name": "MyTestProject API",
-          "Version": "1.0",
-          "Url": "https://localhost:5002/swagger/v1.0/swagger.json"
-        }
-      ]
     }
   ]
 }

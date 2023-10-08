@@ -1,9 +1,13 @@
 ﻿using System.Globalization;
+using Consul;
+using ErSoftDev.Framework.BaseApp;
 using ErSoftDev.Framework.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace ErSoftDev.Framework.Configuration
@@ -52,6 +56,67 @@ namespace ErSoftDev.Framework.Configuration
             {
                 ContentTypeProvider = provider
             });
+        }
+
+        public static IApplicationBuilder UseCustomConsul(this IApplicationBuilder app, AppSetting appSetting)
+        {
+
+            if (appSetting.ServiceDiscoveryConfig is null)
+                return app;
+
+            var consulClient = app.ApplicationServices.GetRequiredService<IConsulClient>();
+            var lifetime = app.ApplicationServices.GetRequiredService<Microsoft.Extensions.Hosting.IApplicationLifetime>();
+
+            if (!(app.Properties["server.Features"] is FeatureCollection features))
+                return app;
+
+            var registration = new AgentServiceRegistration()
+            {
+                ID = appSetting.ServiceDiscoveryConfig.IdOfService,
+                Name = appSetting.ServiceDiscoveryConfig.NameOfService,
+                Address = appSetting.ServiceDiscoveryConfig.Host,
+                Port = appSetting.ServiceDiscoveryConfig.Port,
+                Tags = new[] { $"urlprefix-/{appSetting.ServiceDiscoveryConfig.IdOfService}" }
+            };
+
+            consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
+            consulClient.Agent.ServiceRegister(registration).ConfigureAwait(true);
+
+            lifetime.ApplicationStopping.Register(() =>
+            {
+                consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
+            });
+
+            return app;
+
+            //var consulClient = app.ApplicationServices.GetRequiredService<IConsulClient>();
+            //var lifetime = app.ApplicationServices.GetRequiredService<IHostApplicationLifetime>();
+
+            //var servicePort = appSetting.ServiceDiscoveryConfig.Port;
+            //var serviceHost = appSetting.ServiceDiscoveryConfig.Host;
+            //var serviceName = appSetting.ServiceDiscoveryConfig.NameOfService;
+            //var serviceId = appSetting.ServiceDiscoveryConfig.IdOfService;
+
+            //var registration = new AgentServiceRegistration()
+            //{
+            //    ID = serviceId,
+            //    Name = serviceName,
+            //    Address = serviceHost.ToString(),
+            //    Port = servicePort
+            //};
+
+
+            //Console.WriteLine("{serviceName},Ip:{serviceHost}:{servicePort} , Registering with Consul");
+
+            //consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
+            //consulClient.Agent.ServiceRegister(registration).ConfigureAwait(true);
+
+            //lifetime.ApplicationStopping.Register(() =>
+            //{
+            //    consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
+            //});
+
+            //return app;
         }
     }
 }

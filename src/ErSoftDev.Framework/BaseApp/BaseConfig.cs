@@ -25,6 +25,7 @@ namespace ErSoftDev.Framework.BaseApp
 
         public virtual void ConfigureServices(IServiceCollection services)
         {
+
             services.AddCustomMediatr();
             services.AddGrpc();
             services.AddHttpClient();
@@ -40,6 +41,7 @@ namespace ErSoftDev.Framework.BaseApp
             services.AddCustomSwaggerGen(_appSetting.Swagger);
             services.AddControllers();
             services.AddJaeger(_appSetting);
+            services.AddCustomConsul(_appSetting);
             //services.AddHangfire(configuration => configuration.UseMediatR());
         }
 
@@ -47,7 +49,6 @@ namespace ErSoftDev.Framework.BaseApp
         {
             app.UseCustomRequestLocalization();
             app.UseCustomExceptionMiddleware();
-            //app.UseRateLimitationMiddleware();
             app.UseHstsNotInDevelopment(env);
             app.UseHttpsRedirection();
             app.UseCustomSwaggerUi(_appSetting.Swagger);
@@ -57,6 +58,7 @@ namespace ErSoftDev.Framework.BaseApp
             app.UseRouting();
             app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
             //app.UseHangfireDashboard();
+            app.UseCustomConsul(appsetting);
             app.UseEndpoints(builder =>
             {
                 builder.MapGet("/",
@@ -65,6 +67,7 @@ namespace ErSoftDev.Framework.BaseApp
                 builder.UseGrpcEndPoint();
                 //builder.MapHangfireDashboard();
             });
+
         }
     }
 }

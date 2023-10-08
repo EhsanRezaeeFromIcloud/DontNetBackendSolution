@@ -14,6 +14,7 @@
         public Redis? Redis { get; set; }
         public Hangfire Hangfire { get; set; }
         public Jaeger? Jaeger { get; set; }
+        public ServiceDiscoveryConfig? ServiceDiscoveryConfig { get; set; }
     }
 
     public class Jaeger
@@ -102,5 +103,15 @@
         public bool UseRecommendedIsolationLevel { get; set; }
         public bool DisableGlobalLocks { get; set; }
         public bool PrepareSchemaIfNecessary { get; set; }
+    }
+
+    public class ServiceDiscoveryConfig
+    {
+        public string ConsulUrl { get; set; }
+        public string Host { get; set; }
+        public int Port { get; set; }
+        public string NameOfService { get; set; }
+        public string IdOfService { get; set; }
+
     }
 }
