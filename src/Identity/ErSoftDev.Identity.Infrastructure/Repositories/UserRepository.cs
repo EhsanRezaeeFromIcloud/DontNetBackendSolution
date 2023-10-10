@@ -46,13 +46,6 @@ namespace ErSoftDev.Identity.Infrastructure.Repositories
 
         public async Task<User?> GetUser(long id)
         {
-
-
-
-
-
-
-            //_logger.LogInformation("");
             return await _identityDbContext.Users
                 .Include(user => user.UserLogins)
                 .Include(user => user.UserRefreshTokens)
