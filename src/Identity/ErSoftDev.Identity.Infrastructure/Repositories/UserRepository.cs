@@ -48,6 +48,10 @@ namespace ErSoftDev.Identity.Infrastructure.Repositories
         {
 
 
+
+
+
+
             //_logger.LogInformation("");
             return await _identityDbContext.Users
                 .Include(user => user.UserLogins)
