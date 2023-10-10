@@ -88,35 +88,6 @@ namespace ErSoftDev.Framework.Configuration
             });
 
             return app;
-
-            //var consulClient = app.ApplicationServices.GetRequiredService<IConsulClient>();
-            //var lifetime = app.ApplicationServices.GetRequiredService<IHostApplicationLifetime>();
-
-            //var servicePort = appSetting.ServiceDiscoveryConfig.Port;
-            //var serviceHost = appSetting.ServiceDiscoveryConfig.Host;
-            //var serviceName = appSetting.ServiceDiscoveryConfig.NameOfService;
-            //var serviceId = appSetting.ServiceDiscoveryConfig.IdOfService;
-
-            //var registration = new AgentServiceRegistration()
-            //{
-            //    ID = serviceId,
-            //    Name = serviceName,
-            //    Address = serviceHost.ToString(),
-            //    Port = servicePort
-            //};
-
-
-            //Console.WriteLine("{serviceName},Ip:{serviceHost}:{servicePort} , Registering with Consul");
-
-            //consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
-            //consulClient.Agent.ServiceRegister(registration).ConfigureAwait(true);
-
-            //lifetime.ApplicationStopping.Register(() =>
-            //{
-            //    consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
-            //});
-
-            //return app;
         }
     }
 }

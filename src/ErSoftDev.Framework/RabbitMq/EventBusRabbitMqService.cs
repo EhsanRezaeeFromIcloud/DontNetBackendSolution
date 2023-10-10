@@ -264,18 +264,8 @@ namespace ErSoftDev.Framework.RabbitMq
     /// </summary>
     public enum Queue
     {
-        Test,
-        Stock,
-        PhysicalCoordinator,
-        LoyaltyBank,
-        InternalBank,
-        Order,
-        Core,
         MessageQueue,
-        IrancellSim,
-        IrancellSimCoordinator,
-        Authenticate,
-        MciJiringTopUp
+        Identity,
     }
 
     public class BasicEvent : IntegrationEvent
