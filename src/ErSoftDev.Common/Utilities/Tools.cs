@@ -120,48 +120,6 @@ namespace ErSoftDev.Common.Utilities
             return BitConverter.ToInt32(IPAddress.Parse(ip).GetAddressBytes().Reverse().ToArray(), 0);
         }
 
-        public static bool IsIpTrust(string ip)
-        {
-            var trustIPs = new List<string>()
-            {
-                "81.90.152.162", //اینترنت افرانت شرکت
-                "127.0.0.1", //خود سرور بانک            
-                "::1", // خود سرور بانک
-                "82.99.195.122" //اینترنت پارس آنلاین شرکت
-            };
-
-            if (trustIPs.Any(itemIp => itemIp == ip))
-                return true;
-
-
-            string startIpAddr = "192.168.1.1";
-            string endIpAddr = "192.168.3.254";
-            long ipStart = BitConverter.ToInt32(IPAddress.Parse(startIpAddr).GetAddressBytes().Reverse().ToArray(), 0);
-            long ipEnd = BitConverter.ToInt32(IPAddress.Parse(endIpAddr).GetAddressBytes().Reverse().ToArray(), 0);
-            long ipConvert = BitConverter.ToInt32(IPAddress.Parse(ip).GetAddressBytes().Reverse().ToArray(), 0);
-            if (ipConvert >= ipStart && ipConvert <= ipEnd)
-                return true;
-
-            startIpAddr = "79.175.182.50";
-            endIpAddr = "79.175.182.62";
-            ipStart = BitConverter.ToInt32(IPAddress.Parse(startIpAddr).GetAddressBytes().Reverse().ToArray(), 0);
-            ipEnd = BitConverter.ToInt32(IPAddress.Parse(endIpAddr).GetAddressBytes().Reverse().ToArray(), 0);
-            ipConvert = BitConverter.ToInt32(IPAddress.Parse(ip).GetAddressBytes().Reverse().ToArray(), 0);
-            if (ipConvert >= ipStart && ipConvert <= ipEnd)
-                return true;
-
-            startIpAddr = "192.168.122.1";
-            endIpAddr = "192.168.122.255";
-            ipStart = BitConverter.ToInt32(IPAddress.Parse(startIpAddr).GetAddressBytes().Reverse().ToArray(), 0);
-            ipEnd = BitConverter.ToInt32(IPAddress.Parse(endIpAddr).GetAddressBytes().Reverse().ToArray(), 0);
-            ipConvert = BitConverter.ToInt32(IPAddress.Parse(ip).GetAddressBytes().Reverse().ToArray(), 0);
-            if (ipConvert >= ipStart && ipConvert <= ipEnd)
-                return true;
-
-
-            return false;
-        }
-
         /// <summary>
         /// Set any requested character to middle of string 
         /// </summary>

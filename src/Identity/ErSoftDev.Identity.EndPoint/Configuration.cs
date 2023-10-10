@@ -11,6 +11,7 @@ namespace ErSoftDev.Identity.EndPoint
 
         public override void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<IdentityDbContext>();
             base.ConfigureServices(services);
         }
