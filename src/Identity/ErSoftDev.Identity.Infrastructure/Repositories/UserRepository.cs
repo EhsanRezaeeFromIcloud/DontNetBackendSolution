@@ -2,6 +2,7 @@
 using System.Threading;
 using ErSoftDev.DomainSeedWork;
 using ErSoftDev.Framework.Configuration;
+using ErSoftDev.Framework.Log;
 using ErSoftDev.Identity.Domain.AggregatesModel.UserAggregate;
 using IdGen;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +13,13 @@ namespace ErSoftDev.Identity.Infrastructure.Repositories
     public class UserRepository : IUserRepository, ITransientDependency
     {
         private readonly IdentityDbContext _identityDbContext;
+        private readonly ILogger<UserRepository> _logger;
         public IUnitOfWork UnitOfWork => _identityDbContext;
 
-        public UserRepository(IdentityDbContext identityDbContext)
+        public UserRepository(IdentityDbContext identityDbContext , ILogger<UserRepository> logger)
         {
             _identityDbContext = identityDbContext;
+            _logger = logger;
         }
 
         public async Task Add(User user)
